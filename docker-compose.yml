@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  deeplearning_models:
+    build: .
+    container_name: deeplearning_models_container
+    # 共有メモリの設定
+    shm_size: "20gb"
+    # 作業ディレクトリの指定とマウント
+    working_dir: /work
+    volumes:
+      - ./code:/work/code
+      - ./config:/work/config
+      - ./jupyter:/work/jupyter
+      - /mnt/dataset:/work/dataset
+      - /mnt/models:/work/models
+    # ポートの指定と Jupyter Lab の起動
+    ports:
+      - "8888:8888"
+    command:
+      jupyter-lab --ip 0.0.0.0 --allow-root -b localhost
+    # GPU を使うための設定
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [utility, compute, video]
