@@ -3,15 +3,14 @@ version: '3'
 services:
   deeplearning_models:
     build: .
+    image: deeplearning_models_image
     container_name: deeplearning_models_container
     # 共有メモリの設定
     shm_size: "20gb"
     # 作業ディレクトリの指定とマウント
     working_dir: /work
     volumes:
-      - ./code:/work/code
-      - ./config:/work/config
-      - ./jupyter:/work/jupyter
+      - .:/work
       - /mnt/dataset:/work/dataset
       - /mnt/models:/work/models
     # ポートの指定と Jupyter Lab の起動
