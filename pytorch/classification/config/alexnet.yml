@@ -1,0 +1,2 @@
+model: AlexNet
+model_path: /models/alexnet.pth

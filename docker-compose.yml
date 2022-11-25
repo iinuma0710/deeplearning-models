@@ -11,8 +11,11 @@ services:
     working_dir: /work
     volumes:
       - .:/work
-      - /mnt/dataset:/work/dataset
-      - /mnt/models:/work/models
+      - /mnt/dataset:/dataset
+      - /mnt/models:/models
+    # 環境変数の設定
+    environment:
+      - PYTHONPATH=/work/dezero:/work/pytorch
     # ポートの指定と Jupyter Lab の起動
     ports:
       - "8888:8888"

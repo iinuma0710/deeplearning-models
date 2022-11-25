@@ -1,6 +1,18 @@
 # 深層学習モデルの PyTorch 実装
 勉強しながら PyTorch を用いて実装した深層学習モデルを置いておくリポジトリです。
 
+## リポジトリの構成
+```
+deeplearning-models/
+  ┣ dezero/
+  ┣ jupyter/
+  ┣ pytorch/
+    ┣ dataset/
+    ┣ model/
+      ┣ classification/
+      ┣ 
+```
+
 ## 環境の立ち上げ
 深層学習の環境は Docker で立ち上げます。
 
